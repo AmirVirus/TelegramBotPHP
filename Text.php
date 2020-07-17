@@ -2,8 +2,10 @@
 
 $telegram = new Telegram('1271334562:AAHiJB0g6LFSdjRwZYHNaETUv-OuJdD0roE');
 $chat_id = $telegram->ChatID();
-$data = $telegram->GetData();
-$from_id = $data['message']['from']['id'];
+$from_id = $telegram->FromID();
+$text = $telegram->Text();
+if($text == "/start"){
 $telegram->sendMessage(['chat_id' => $from_id, 'text' => 'Hi']);
+}
 
 ?>
